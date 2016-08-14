@@ -1,0 +1,35 @@
+
+Display Idea<br /><br />
+
+<b>ID:  </b><%= @place.id %><br />
+<b>Title:  </b><%= @place.name %><br />
+<b>Description:  </b><%= @place.description %><br />
+<b>Category: </b><%= @place.category.name %>
+<b>Comments :
+
+  <% @place.comments.each do |comment| %>
+
+
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+  <% end %>
+
+<br/>
+
+<%= form_for([@place , @place.comments.build]) do |c|  %>
+    <%= c.text_area :body, placeholder: "body", rows: 10 %><br>
+
+    <%= c.submit 'Gonder' %>
+
+    <% end %>
+
+
+
+<br/>
+<%= link_to "Back to place list", places_path %>
+<br/>
+<%= link_to "Edit place", edit_place_path(@place) %>
+<br/>
+<%= link_to "Sil", place_path(@place), method: :delete %>

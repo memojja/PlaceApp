@@ -1,0 +1,10 @@
+
+<h1>Create a new Place</h1>
+
+<% if @place.errors.any? %>
+  <h3>
+    <%= @place.errors.full_messages.join(", ") %>
+  </h3>
+<% end %>
+
+<%= render "form" %>

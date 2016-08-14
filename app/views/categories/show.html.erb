@@ -1,0 +1,12 @@
+
+Display Idea<br /><br />
+
+<b>ID:  </b><%= @category.id %><br />
+<b>Title:  </b><%= @category.name %><br />
+<b>Places: </b>
+<% @places.each do |i| %>
+   <%= link_to i.name, place_path(i.id) %><br />
+<%end %>
+<br/><br/>
+<%= link_to "Back to category list", categories_path %>
+<br/>

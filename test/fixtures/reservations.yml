@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 
+  numberOfPeople: 1
+  place_id: 1
+  customer_id: 1
+
+two:
+  date: 
+  numberOfPeople: 1
+  place_id: 1
+  customer_id: 1

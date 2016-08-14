@@ -1,0 +1,8 @@
+
+<%= @places.count %> <br />
+<br />
+<br />
+<% @places.each do |i| %>
+   <%= link_to i.name, place_path(i.id) %><br />
+   <%= i.description %> <br />
+<% end %>
