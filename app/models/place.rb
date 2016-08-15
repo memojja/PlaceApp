@@ -3,5 +3,6 @@ class Place < ApplicationRecord
  #validates :description presence: true ,length: {maximum: 500}
 belongs_to :category
 	has_many :comments
+	belongs_to :owner
 
 end

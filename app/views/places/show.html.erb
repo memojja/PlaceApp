@@ -5,7 +5,7 @@ shoW<br /><br />
 <b>Title:  </b><%= @place.name %><br />
 <b>Description:  </b><%= @place.description %><br />
 <b>Category: </b><%= @place.category.name %>
-<b>Comments :
+<b>Comments :</b>
 
   <% @place.comments.each do |comment| %>
 
@@ -27,8 +27,14 @@ shoW<br /><br />
   <% end %>
 
 <br/>
+
+  <% if current_owner.present? and current_owner.id == @place.owner_id %>
+
+
 <%= link_to "Back to place list", places_path %>
 <br/>
 <%= link_to "Edit place", edit_place_path(@place) %>
 <br/>
 <%= link_to "Sil", place_path(@place), method: :delete %>
+
+  <% end %>

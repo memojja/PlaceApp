@@ -1,5 +1,12 @@
 class PlacesController < ApplicationController
+
+	before_action :authenticate_owner!, except: [:show,:index]
+  #yukdarıda show ve index harciini kimliklendiriyor herkes göremıyor yani.show ve indexi herkes görebilir
 	before_action :find_place, only: [:show, :update, :edit, :destroy]
+	#before_action :authenticate_customer! , except:  [:show , :index]
+  #custoemr yorumda olucak
+	before_action :authorize_owner!, only: [:edit, :update, :destroy]
+
 	def new
 		@place = Place.new
 		load_categories
@@ -16,7 +23,8 @@ class PlacesController < ApplicationController
  	end
 
  	def create
- 		@place = Place.new(strong_params)
+ 		#@place = Place.new(strong_params)
+		@place = current_owner.places.new(strong_params)
 
  		if @place.save
  			flash[:success] = 'Islem basariyla tamamlandi.'
@@ -59,5 +67,10 @@ class PlacesController < ApplicationController
 	def find_place
     @place = Place.find(params[:id])
 	end
+
+	def authorize_owner!
+		redirect_to root_path, notice: "Not authorized" if @place.owner_id != current_owner.id
+	end
+
 
 end
