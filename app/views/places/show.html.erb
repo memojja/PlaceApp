@@ -1,5 +1,5 @@
 
-Display Idea<br /><br />
+shoW<br /><br />
 
 <b>ID:  </b><%= @place.id %><br />
 <b>Title:  </b><%= @place.name %><br />
@@ -18,14 +18,13 @@ Display Idea<br /><br />
 
 <br/>
 
-<%= form_for([@place , @place.comments.build]) do |c|  %>
-    <%= c.text_area :body, placeholder: "body", rows: 10 %><br>
+<%= form_for([@place , @place.comments.build]) do |c| %>
+
+    <%= c.text_area :body, placeholder: "body", rows: 10 %> <br>
 
     <%= c.submit 'Gonder' %>
 
-    <% end %>
-
-
+  <% end %>
 
 <br/>
 <%= link_to "Back to place list", places_path %>

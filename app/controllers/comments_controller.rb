@@ -4,7 +4,13 @@ class CommentsController < ApplicationController
 
     @place=Place.find(params[:place_id])
     @comment = @place.comments.create(comment_params)
+
+    if @comment
     redirect_to place_path(@place)
+    else
+      render :show
+    end
+
   end
 
   private

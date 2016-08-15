@@ -21,9 +21,6 @@ Food.create(name:"Food1")
 Food.create(name:"Food2")
 Food.create(name:"Food3")
 
-Customer.create(firstName:"Customer1")
-Customer.create(firstName:"Customer2")
-Customer.create(firstName:"Customer3")
 
 Comment.create(body:"Comment11",customer_id:1,place_id:1)
 Comment.create(body:"Comment12",customer_id:1,place_id:2)
