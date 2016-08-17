@@ -12,12 +12,13 @@ shoW<br /><br />
 
       <p>
         <strong>Comment:</strong>
-        <%= comment.body %>
+        <%= comment.body %><%= comment.customer.email %>
       </p>
   <% end %>
 
 <br/>
 
+<% if current_customer.present? %>
 <%= form_for([@place , @place.comments.build]) do |c| %>
 
     <%= c.text_area :body, placeholder: "body", rows: 10 %> <br>
@@ -27,7 +28,7 @@ shoW<br /><br />
   <% end %>
 
 <br/>
-
+<% end %>
   <% if current_owner.present? and current_owner.id == @place.owner_id %>
 
 
@@ -38,3 +39,4 @@ shoW<br /><br />
 <%= link_to "Sil", place_path(@place), method: :delete %>
 
   <% end %>
+

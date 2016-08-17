@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
 	before_action :find_place, only: [:show, :update, :edit, :destroy]
 	#before_action :authenticate_customer! , except:  [:show , :index]
   #custoemr yorumda olucak
-	before_action :authorize_owner!, only: [:edit, :update, :destroy]
+	before_action :authorize_owner!, only: [:edit, :update, :destroy] #yetkilendirme
 
 	def new
 		@place = Place.new
